@@ -23,7 +23,6 @@ const toCelsius = function (temperatures) {
   return temperatures.map( temperature =>  (temperature - 32) * (5/9));
 };
 
-console.log(toCelsius([32, 212, -40, 122, 54.5]))
 /**************************************
  * hottestDays(temperatures, threshhold)
  *
@@ -33,7 +32,7 @@ console.log(toCelsius([32, 212, -40, 122, 54.5]))
  *   that exceed the threshhold
  ***************************************/
 const hottestDays = function (temperatures, threshhold) {
-  return temperatures.filter(temperature => temperatures > threshhold)
+  return temperatures.filter(temperature => temperature > threshhold)
 };
 
 /******************************************
@@ -51,7 +50,8 @@ const hottestDays = function (temperatures, threshhold) {
  *       all previous functions
  *******************************************/
 const logHottestDays = function (temperatures, threshhold) {
-  logger(hottestDays(toCelsius(temperatures),toCelsius(threshhold)))
+  threshhold = (threshhold - 32) * (5/9)
+  return logger(hottestDays(toCelsius(temperatures),threshhold))
 };
 
 /* Uncomment the following lines to test your code... */
